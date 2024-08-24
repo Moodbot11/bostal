@@ -1,0 +1,84 @@
+import Image from 'next/image'
+
+const tables = [
+  {
+    name: "Seaside Lounge",
+    image: "http://kfkit.rometheme.pro/besort/wp-content/uploads/sites/40/2022/11/white-lounge-chairs-on-a-beautiful-tropical-beach-M9YC2LR.jpg",
+    capacity: "1-5",
+    price: "$129 / hr",
+    features: [
+      "Vonsectetur Adipiscing",
+      "Malesuada Aliquam",
+      "Vonsectetur Adipiscing"
+    ]
+  },
+  {
+    name: "Deck Lounge",
+    image: "http://kfkit.rometheme.pro/besort/wp-content/uploads/sites/40/2022/11/happy-girls-having-fun-cheering-with-cocktails-at-5V9ZUL7.jpg",
+    capacity: "1-5",
+    price: "$129 / hr",
+    features: [
+      "Vonsectetur Adipiscing",
+      "Malesuada Aliquam",
+      "Vonsectetur Adipiscing"
+    ]
+  },
+  {
+    name: "Sunrise Lounge",
+    image: "http://kfkit.rometheme.pro/besort/wp-content/uploads/sites/40/2022/11/wonderful-tropical-beach-in-the-egypt-PC33Z38.jpg",
+    capacity: "1-5",
+    price: "$129 / hr",
+    features: [
+      "Vonsectetur Adipiscing",
+      "Malesuada Aliquam",
+      "Vonsectetur Adipiscing"
+    ]
+  },
+  {
+    name: "Rooftop Lounge",
+    image: "http://kfkit.rometheme.pro/besort/wp-content/uploads/sites/40/2022/11/tropical-vacation-to-private-resort-for-relaxing-a-KYRGEFA.jpg",
+    capacity: "1-5",
+    price: "$129 / hr",
+    features: [
+      "Vonsectetur Adipiscing",
+      "Malesuada Aliquam",
+      "Vonsectetur Adipiscing"
+    ]
+  }
+]
+
+export default function ReservationTable() {
+  return (
+    <div className="grid md:grid-cols-2 gap-8">
+      {tables.map((table, index) => (
+        <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+          <Image
+            src={table.image}
+            alt={table.name}
+            width={600}
+            height={400}
+            className="w-full h-64 object-cover"
+          />
+          <div className="p-6">
+            <h3 className="text-2xl font-semibold mb-4">{table.name}</h3>
+            <div className="flex justify-between mb-4">
+              <p>Full Capacity: {table.capacity}</p>
+              <p>Price: {table.price}</p>
+            </div>
+            <ul className="mb-6">
+              {table.features.map((feature, i) => (
+                <li key={i} className="flex items-center mb-2">
+                  <span className="text-blue-600 mr-2">✓</span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300">
+              BOOK NOW
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
